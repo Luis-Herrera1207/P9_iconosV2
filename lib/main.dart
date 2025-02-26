@@ -11,9 +11,9 @@ class MisIconos extends StatelessWidget {
       home: Scaffold(
         appBar: AppBar(
           title: Text("Luis Herrera"),
-          titleTextStyle: TextStyle(color: Color(0xff1335cf), fontSize: 20),
+          titleTextStyle: TextStyle(color: Color(0xffffffff), fontSize: 20),
           centerTitle: true,
-          backgroundColor: Color(0xff2c2a2a),
+          backgroundColor: Color(0xff000000),
         ),
         body: Center(
           child: Column(
@@ -28,9 +28,16 @@ class MisIconos extends StatelessWidget {
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: <Widget>[
-                  IconWithSubtitle(icon: Icons.home, subtitle: 'Inicio'),
-                  IconWithSubtitle(icon: Icons.favorite, subtitle: 'Favoritos'),
-                  IconWithSubtitle(icon: Icons.star, subtitle: 'Destacado'),
+                  IconWithSubtitle(
+                      icon: Icons.home, subtitle: 'Inicio', color: Colors.red),
+                  IconWithSubtitle(
+                      icon: Icons.favorite,
+                      subtitle: 'Favoritos',
+                      color: Colors.pink),
+                  IconWithSubtitle(
+                      icon: Icons.star,
+                      subtitle: 'Destacado',
+                      color: Colors.amber),
                 ],
               ),
               SizedBox(height: 20), // Espacio entre las filas
@@ -38,9 +45,18 @@ class MisIconos extends StatelessWidget {
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[
-                  IconWithSubtitle(icon: Icons.tiktok, subtitle: 'TikTok'),
-                  IconWithSubtitle(icon: Icons.snapchat, subtitle: 'Snapchat'),
-                  IconWithSubtitle(icon: Icons.sailing, subtitle: 'Barco'),
+                  IconWithSubtitle(
+                      icon: Icons.tiktok,
+                      subtitle: 'TikTok',
+                      color: Colors.green),
+                  IconWithSubtitle(
+                      icon: Icons.snapchat,
+                      subtitle: 'Snapchat',
+                      color: Colors.yellow),
+                  IconWithSubtitle(
+                      icon: Icons.sailing,
+                      subtitle: 'Barco',
+                      color: Colors.blue),
                 ],
               ),
             ],
@@ -55,14 +71,16 @@ class MisIconos extends StatelessWidget {
 class IconWithSubtitle extends StatelessWidget {
   final IconData icon;
   final String subtitle;
+  final Color color;
 
-  IconWithSubtitle({required this.icon, required this.subtitle});
+  IconWithSubtitle(
+      {required this.icon, required this.subtitle, required this.color});
 
   @override
   Widget build(BuildContext context) {
     return Column(
       children: <Widget>[
-        Icon(icon, size: 50.0, color: Colors.blue),
+        Icon(icon, size: 50.0, color: color),
         SizedBox(height: 8), // Espacio entre el ícono y el subtítulo
         Text(subtitle, style: TextStyle(fontSize: 16)),
       ],
